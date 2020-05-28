@@ -150,12 +150,12 @@ double triangle_intersect(const Ray& ray, const vector<double>& v0, \
     //vec3 e2 = v2 - v0;
     vector<double> e1 = { v1.at(0) - v0.at(0), v1.at(1) - v0.at(1), v1.at(2) - v0.at(2) }, \
         e2 = { v2.at(0) - v0.at(0), v2.at(1) - v0.at(1), v2.at(2) - v0.at(2) };
-    // Вычисление вектора нормали к плоскости
+    // 
     //vec3 pvec = cross(dir, e2);
     vector<double> pvec = cross(ray.get_dir(), e2);
     double det = dot(e1, pvec);
     
-    // Луч параллелен плоскости
+    // 
     if (det < 1e-8 && det > -1e-8) {
         return 0;
     }
@@ -364,10 +364,10 @@ void Ray_tracing(const map<string, vector<double>>* params, const map<string, in
             //cout << intersectedFigrs.size() << " " << min_ind << " "<<res.size()<< endl;
             //sphere 200 0 0 30 0 -90 10
             //box 200 200 0 30 0 -90 70 10 -80
-            //RGB rgb(intersectedFigrs.at(min_ind)->get_ColorOfPoint(inter, light, cam));
-            //unsigned char color[] = { rgb.get_red(), rgb.get_green(), rgb.get_blue() };
-            unsigned char color[] = { intersectedFigrs.at(min_ind)->get_Red(), intersectedFigrs.at(min_ind)->get_Green(),\
-              intersectedFigrs.at(min_ind)->get_Blue() };
+            RGB rgb(intersectedFigrs.at(min_ind)->get_ColorOfPoint(inter, light, cam));
+            unsigned char color[] = { rgb.get_red(), rgb.get_green(), rgb.get_blue() };
+            //unsigned char color[] = { intersectedFigrs.at(min_ind)->get_Red(), intersectedFigrs.at(min_ind)->get_Green(),\
+              //intersectedFigrs.at(min_ind)->get_Blue() };
             img.draw_point(j, i, color);
 
             

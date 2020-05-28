@@ -288,7 +288,7 @@ void Ray_tracing(const map<string, vector<double>>* params, const map<string, in
     /*startV.push_back(norm.at(0) * dist);
     startV.push_back(norm.at(1) * dist);
     startV.push_back(norm.at(2) * dist);*/
-    cimg_library::CImg<unsigned char> img(height, width, 1, 3);
+    cimg_library::CImg<unsigned char> img(width, height, 1, 3);
     img.fill(0);
     unsigned char white[] = { 255,255,255 }, red[] = { 255,0,0 };
     img.draw_text(100, 100, "Hello World", white);
